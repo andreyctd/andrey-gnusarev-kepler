@@ -69,7 +69,22 @@ section {
     margin: 10px 0;
     padding: 10px;
 }
-.experience-list li{
+.experiences-list {
+    list-style-type: none;
+    display: flexbox;
+}
+.years {
+    float: right;
+}
+.experiences-list li {
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgb(125, 0, 125);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 2px 2px rgb(0, 0, 0);
+    margin: 15px 50px 0 0;
+}
+.skills-list li{
     list-style-type: none;
     background-color:rgb(255, 255, 255);
     border: 2px solid rgb(125, 0, 125);
@@ -79,7 +94,7 @@ section {
     text-align: center;
     margin: 15px 50px 0 0;
 }
-.experience-list li:hover {
+.skills-list li:hover {
     transform: translateY(-5px);
 }
 .connect-links li {
@@ -97,6 +112,8 @@ section {
     box-shadow: 2px 2px rgb(125, 0, 125);
     flex: 1;
     text-align: center;
+    display: flexbox;
+    justify-content: center;
 }
 .connect-links li a:hover {
     background-color: rgb(125, 0, 125);
