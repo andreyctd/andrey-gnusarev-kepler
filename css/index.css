@@ -28,7 +28,7 @@ nav {
     border-right: 2px solid rgb(0, 0, 0);
 }
 .navbar li a {
-    color: rgb(0, 0, 150);
+    color: rgb(150, 150, 150);
 }
 .navbar li a:hover {
     color: rgb(255, 255, 255);
@@ -96,6 +96,25 @@ section {
 }
 .skills-list li:hover {
     transform: translateY(-5px);
+}
+.projects-list {
+    list-style-type: none;
+    display: flexbox;
+    flex-direction: column;
+    border: #000000 2px solid;
+}
+.item2 {
+    text-align: center;
+}
+.item3 {
+    text-align: end;
+}
+.connect-links {
+    list-style-type: none;
+    display: flexbox;
+    justify-content: center;
+    margin: 0 20px;
+    padding: 0px;
 }
 .connect-links li {
     list-style-type: none;
