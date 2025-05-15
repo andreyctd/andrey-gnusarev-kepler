@@ -1,6 +1,8 @@
+const footer = document.createElement(`footer`);
+document.body.appendChild(footer);
 const today = new Date();
 const thisYear = today.getFullYear();
-const footer = document.querySelector(`footer`);
+const newFooter = document.querySelector(`footer`);
 const copyright = document.createElement(`p`);
 copyright.innerHTML = `<em> Andrey Gnusarev &copy; <strong> ${thisYear} </strong></em>
                        <div class="social-icons">
@@ -9,7 +11,7 @@ copyright.innerHTML = `<em> Andrey Gnusarev &copy; <strong> ${thisYear} </strong
                         <i class="fab fa-linkedin-in"></i></a>
                         <a href="https://github.com/andreyctd" target="_blank" aria-label="GitHub">
                         <i class="fab fa-github"></i></a><div/>`;
-footer.appendChild(copyright);
+newFooter.appendChild(copyright);
 /* const footer = document.createElement("footer");
 footer.innerHTML = `<p><em> Andrey Gnusarev &copy; <strong> 2025 </strong></em><p/>
                     <div class="social-icons">
@@ -34,4 +36,34 @@ for (let i = 0; i < skills.length; i++) {
     const skill = document.createElement(`li`);
     skill.innerHTML = skills[i];
     skillsList.appendChild(skill);
-}
+} 
+
+const messageForm = document.forms["leave_message"];
+messageForm.addEventListener("submit", function (event) {
+  event.preventDefault(); // prevent the page from reloading/refreshing
+  const usersName = event.target.usersName.value;
+  const usersEmail = event.target.usersEmail.value;
+  const usersMessage = event.target.usersMessage.value;
+  console.log("User Name:", usersName);
+  console.log("User Email:", usersEmail);
+  console.log("User Message:", usersMessage);
+  const messageSection = document.getElementById(`messages`);
+  const messageList = messageSection.querySelector(`ul`);
+  const newMessage = document.createElement(`li`);
+  newMessage.innerHTML = `<a href="mailto:${usersEmail}">${usersName}</a>
+                            <span> wrote: ${usersMessage}</span>`;
+  // Create a remove button
+  const removeButton = document.createElement(`button`);
+  removeButton.innerText = `remove`;
+  removeButton.type = `button`;
+  // Add click event to remove button
+  removeButton.addEventListener(`click`, function () {
+      const entry = removeButton.parentNode;   // Get/finds the button's parent element using DOM Traversal
+      entry.remove();    // Remove the element from the DOM
+  });
+    // Append the remove button to the new message element
+    newMessage.appendChild(removeButton);
+    // Append the new message to the message list
+    messageList.appendChild(newMessage);
+  event.target.reset(); // reset/clear the form
+});
