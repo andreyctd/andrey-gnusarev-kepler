@@ -67,3 +67,26 @@ messageForm.addEventListener("submit", function (event) {
     messageList.appendChild(newMessage);
   event.target.reset(); // reset/clear the form
 });
+
+fetch(`https://api.github.com/users/andreyctd/repos`)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`Request failed`);
+        }
+        return response.json(); // Parse the response as JSON
+    })
+    .then(data => {
+        repositories = data;
+        console.log("Repositories:", repositories);
+    })
+    .catch (error => {
+    console.error(`An error occurred:`, error);
+    }); 
+const projectSection = document.getElementById(`projects`);
+const projectList = projectSection.querySelector(`ul`);
+for (let i = 0; i < repositories.length; i++) {
+    const project = document.createElement(`li`);
+    project.innerText = repositories[i].name;
+    // Append the new message to the message list
+    projectList.appendChild(project);
+}
