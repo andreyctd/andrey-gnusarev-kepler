@@ -68,6 +68,9 @@ messageForm.addEventListener("submit", function (event) {
   event.target.reset(); // reset/clear the form
 });
 
+// Initialize an empty array to store repositories
+const repositories = [];
+// Fetch repositories from GitHub API
 fetch(`https://api.github.com/users/andreyctd/repos`)
     .then(response => {
         if (!response.ok) {
