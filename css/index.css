@@ -113,7 +113,14 @@ section {
     list-style-type: none;
     display: flex;
     flex-direction: column;
-    border: #000000 2px solid;
+}
+.projects-list li {
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgb(125, 0, 125);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 2px 2px rgb(0, 0, 0);
+    margin: 15px 50px 0 0;
 }
 .item2 {
     text-align: center;

@@ -68,8 +68,6 @@ messageForm.addEventListener("submit", function (event) {
   event.target.reset(); // reset/clear the form
 });
 
-// Initialize an empty array to store repositories
-const repositories = [];
 // Fetch repositories from GitHub API
 fetch(`https://api.github.com/users/andreyctd/repos`)
     .then(response => {
@@ -81,15 +79,22 @@ fetch(`https://api.github.com/users/andreyctd/repos`)
     .then(data => {
         repositories = data;
         console.log("Repositories:", repositories);
+        const projectSection = document.getElementById(`projects`);
+        const projectList = projectSection.querySelector(`ul`);
+        for (let i = 0; i < repositories.length; i++) {
+          const project = document.createElement(`li`);
+            project.innerText = repositories[i].name;
+            // Create a link to the repository
+            const projectLink = document.createElement(`a`);
+            projectLink.href = repositories[i].html_url;
+            projectLink.target = `_blank`; // Open link in a new tab
+            projectLink.innerText = `View Repository`;
+          // Append the link to the project item
+          project.appendChild(projectLink);
+          // Append the new message to the message list
+          projectList.appendChild(project);
+        }
     })
     .catch (error => {
     console.error(`An error occurred:`, error);
-    }); 
-const projectSection = document.getElementById(`projects`);
-const projectList = projectSection.querySelector(`ul`);
-for (let i = 0; i < repositories.length; i++) {
-    const project = document.createElement(`li`);
-    project.innerText = repositories[i].name;
-    // Append the new message to the message list
-    projectList.appendChild(project);
-}
+    });
