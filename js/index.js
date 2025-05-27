@@ -76,8 +76,7 @@ fetch(`https://api.github.com/users/andreyctd/repos`)
         }
         return response.json(); // Parse the response as JSON
     })
-    .then(data => {
-        repositories = data;
+    .then(repositories => {
         console.log("Repositories:", repositories);
         const projectSection = document.getElementById(`projects`);
         const projectList = projectSection.querySelector(`ul`);
@@ -88,7 +87,7 @@ fetch(`https://api.github.com/users/andreyctd/repos`)
             const projectLink = document.createElement(`a`);
             projectLink.href = repositories[i].html_url;
             projectLink.target = `_blank`; // Open link in a new tab
-            projectLink.innerText = `View Repository`;
+            projectLink.innerHTML = `View Repository`;
           // Append the link to the project item
           project.appendChild(projectLink);
           // Append the new message to the message list
