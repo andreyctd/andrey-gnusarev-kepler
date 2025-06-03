@@ -1,0 +1,53 @@
+/* Tablet (768px and below) */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 30px;
+    margin: 130px 0 30px 0;
+  }
+  img {
+    width: 500px;
+    height: 500px;
+  }
+  .experiences-list li,
+  .skills-list li,
+  .connect-links li {
+    margin: 15px 30px 0 0;
+  }
+}
+
+/* Mobile (576px and below) */
+@media (max-width: 576px) {
+  body {
+    font-size: 18px;
+    color: rgb(90, 0, 50);
+  }
+
+  h2 {
+    font-size: 24px;
+    color: rgb(90, 0, 50);
+  }
+
+  nav, 
+  footer {
+    font-size: 18px;
+    background-color: rgb(90, 0, 50);
+  }
+  img {
+    width: 400px;
+    height: 400px;
+  }
+  .projects-list,
+  .skills-list,
+  .experiences-list {
+    margin: 0 10px;
+  }
+    .connect-links {
+    margin: 0 10px;
+    }
+    form[name="leave_message"] button[type="submit"] {
+        background-color: rgb(90, 0, 50);
+    }
+    #messages li button {
+        background-color: rgb(90, 0, 50);
+    }
+}

@@ -94,6 +94,9 @@ section {
 }
 .skills-list {
     margin-top: 50px;
+    display: grid;
+    grid-template-columns: 3fr 3fr 3fr;
+    text-align: center;
 }
 .skills-list li {
     list-style-type: none;
@@ -109,12 +112,18 @@ section {
     transform: translateY(-5px);
     transition: all 0.3s ease;
 }
-.projects-list {
+/* .projects-list {
     list-style-type: none;
     display: flex;
     flex-direction: row;
     justify-content: center;
-}
+} */
+ .projects-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    text-align: center;
+ }
 .projects-list li {
     background-color: rgb(255, 255, 255);
     border: 2px solid rgb(125, 0, 125);
@@ -186,6 +195,9 @@ form[name="leave_message"] button[type="submit"] {
     box-shadow: 2px 2px rgb(0, 0, 150);
     cursor: pointer;
     margin-left: 20px;
+}
+#messages{
+    display: none;
 }
 #messages ul {
     list-style-type: none;
@@ -274,6 +286,10 @@ footer {
   .skills-list,
   .experiences-list {
     margin: 0 10px;
+  }
+  .skills-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
     .connect-links {
     margin: 0 10px;

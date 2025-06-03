@@ -10,7 +10,7 @@ copyright.innerHTML = `<em> Andrey Gnusarev &copy; <strong> ${thisYear} </strong
                              target="_blank" aria-label="LinkedIn">
                         <i class="fab fa-linkedin-in"></i></a>
                         <a href="https://github.com/andreyctd" target="_blank" aria-label="GitHub">
-                        <i class="fab fa-github"></i></a><div/>`;
+                        <i class="fab fa-github"></i></a></div>`;
 newFooter.appendChild(copyright);
 /* const footer = document.createElement("footer");
 footer.innerHTML = `<p><em> Andrey Gnusarev &copy; <strong> 2025 </strong></em><p/>
@@ -58,13 +58,39 @@ messageForm.addEventListener("submit", function (event) {
   removeButton.type = `button`;
   // Add click event to remove button
   removeButton.addEventListener(`click`, function () {
-      const entry = removeButton.parentNode;   // Get/finds the button's parent element using DOM Traversal
-      entry.remove();    // Remove the element from the DOM
+    const entry = removeButton.parentNode; // Get/finds the button's parent element using DOM Traversal
+    entry.remove(); // Remove the element from the DOM
+    if (messageList.children.length === 0) {
+      messageSection.style.display = "none";
+    }
   });
-    // Append the remove button to the new message element
-    newMessage.appendChild(removeButton);
-    // Append the new message to the message list
-    messageList.appendChild(newMessage);
+
+  /*  // Edit button
+  const editButton = document.createElement("button");
+  editButton.textContent = "Edit";
+  editButton.type = "button";
+  editButton.addEventListener("click", function () {
+    const newText = prompt(
+      "Edit your message:",
+      messageSpan.textContent.replace(" wrote: ", "")
+    );
+    if (newText !== null && newText.trim() !== "") {
+      messageSpan.textContent = ` wrote: ${newText}`;
+    }
+  });
+
+  // Append the edit button to the new message element
+  newMessage.appendChild(editButton);
+  // Create a span for the message text
+  const messageSpan = document.createElement("span");
+  // Append the message span to the new message element
+  newMessage.appendChild(messageSpan);  */
+
+  // Append the remove button to the new message element
+  newMessage.appendChild(removeButton);
+  // Append the new message to the message list
+  messageList.appendChild(newMessage);
+  messageSection.style.display = "block";
   event.target.reset(); // reset/clear the form
 });
 
